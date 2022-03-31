@@ -1,0 +1,18 @@
+<div class="sidenav">
+    <div class="logo">
+        <!-- <a href="/" class="simple-text logo-mini">
+            <div class="logo-img">
+                <img src="./assets/logo.png">
+            </div>
+        </a> -->
+        <!-- <a href="/" class="simple-text logo-normal"> -->
+        <img class="logo" src="./assets/imagen_2.jpg">
+        <!-- </a> -->
+    </div>
+    <ul class="nav">
+        <!-- <li><a routerLink=''><i class="fas fa-home"></i>Inicio</a></li> -->
+        <li *ngIf="isLogged"><a routerLink='/user'><i class="fas fa-user"></i>Usuarios</a></li>
+        <li><a routerLink='/paper'><i class="fas fa-scroll"></i>Hojas</a></li>
+        <li *ngIf="isLogged"><a routerLink='/data'><i class="fas fa-calendar-alt"></i>Datos</a></li>
+    </ul>
+</div> 

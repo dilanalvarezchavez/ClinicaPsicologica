@@ -1,0 +1,71 @@
+<div class="row" style="height: 650px; margin-left: 10px;">
+    <div class="col-md-12">
+        <div class="card fondo ">
+            <div class="card-header">
+                <h4 class="card-title">Datos de los pacientes</h4>
+            </div>
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"
+                        type="search" placeholder="Buscar por Fecha" aria-label="Search" (input)="Search()">
+                    <input class="form-control mr-sm-2" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}"
+                        type="search" placeholder="Buscar por usuario" aria-label="Search" (input)="SearchUser()">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="exportexcel()">Exportar
+                        <i class="fas fa-file-excel"></i></button>
+
+                </form>
+            </nav>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="export" class="table ">
+                        <thead class=" text">
+                            <tr>
+                                <th>Dia</th>
+                                <th>Paciente</th>
+                                <th> Pregunta 1</th>
+                                <th>Pregunta 2</th>
+                                <th>Pregunta 3</th>
+
+                                <th>Pregunta 4</th>
+                                <th>Pregunta 5</th>
+
+                                <th>Pregunta 6</th>
+                                <th>Pregunta 7</th>
+
+                                <th>Pregunta 8</th>
+                                <th>Pregunta 9</th>
+
+                                <th> Pregunta 10</th>
+                                <th>Pregunta 11</th>
+                                <th>Pregunta 12</th>
+
+
+                                <th> Pregunta 13</th>
+                                <th>Pregunta 14</th>
+                                <th>Observaciones</th>
+                            </tr>
+                            <tr *ngFor="let paper of papers">
+                                <th>{{paper.dia}}</th>
+                                <th>{{paper.name}}</th>
+                                <th>{{paper.ayunas}}</th>
+                                <th>{{paper.nph_lantus}}</th>
+                                <th>{{paper.rapida_ultra_rap}}</th>
+                                <th>{{paper.media_manana}}</th>
+                                <th>{{paper.rapida_ultra_rap_m}}</th>
+                                <th>{{paper.almuerzo}}</th>
+                                <th>{{paper.rapida_ultra_rap_a}}</th>
+                                <th>{{paper.media_tarde}}</th>
+                                <th>{{paper.rapida_ultra_rap_t}}</th>
+                                <th>{{paper.merienda}}</th>
+                                <th>{{paper.rapida_ultra_rap_md}}</th>
+                                <th>{{paper.nph_lantus_md}}</th>
+                                <th>{{paper.dormir}}</th>
+                                <th>{{paper.correcion_total}}</th>
+                                <th>{{paper.observaciones}}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,101 @@
+<div class="row" style="height: 650px; margin-left: 10px;">
+  <div class="col-md-8">
+    <div class="card card-user fondo">
+      <div class="card-header fondo">
+        <h2 class="card-title text">Crear usuario</h2>
+      </div>
+      <div class="card-body ">
+        <form [formGroup]="UserForm" (ngSubmit)="onSubmit()">
+          <div class="row ">
+            <div class="col-md-4 px-1">
+              <div class="form-group ">
+                <label>Nombre</label>
+                <input type="text" formControlName="name" class="form-control" placeholder="Dilan ALvarez">
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Cedula o Pasaporte</label>
+                <input type="text" class="form-control" formControlName="dni" placeholder="17777777 - ZABOOOO">
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Telefono</label>
+                <input type="text" class="form-control" formControlName="phone" placeholder="099999999 - 22123123">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 px-1">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Contraseña</label>
+                <input type="text" formControlName="password" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Rol</label>
+                <!-- <input type="text" formControlName="role" class="form-control"> -->
+                <select class="form-control" formControlName="role" aria-label="Default select example">
+                  <option selected>Roles disponibles</option>
+                  <!-- <option value="1">Admin</option> -->
+                  <option value="2">User</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-primary btn-round">Crear</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card fondo text">
+      <div class="card-header">
+        <h4 class="card-title">Listado de usuarios</h4>
+      </div>
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" type="search"
+            placeholder="Search" aria-label="Search" (input)="Search()">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)=Search()>Search</button>
+        </form>
+      </nav>
+      <div class="card-body">
+
+
+        <table class="table ">
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+
+            <th width="220px">Action</th>
+
+          </tr>
+          <tr *ngFor="let user of Users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.phone}}</td>
+
+            <td>
+              <button type="button" class="btn btn-sm btn-outline-success btn-round btn-icon"
+                (click)=selectUser(user)><i class="fas fa-edit"></i></button>
+              <button type="button" class="btn btn-sm btn-outline-danger btn-round btn-icon" (click)=deleteUser(user)><i
+                  class="fas fa-trash"></i></button>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

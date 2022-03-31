@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expandlg navbar-dark bg-dark">
+    <a class="sidenav-button"><i class="fas fa-bars" aria-hidden="true" (click)=inputSideNav.toggle()></i></a>
+    <a class="navbar-brand"></a>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Mas acciones
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="Login()">Iniciar Session</a>
+            <a class="dropdown-item" (click)="Logout()" href="login">Cerrar Session</a>
+        </div>
+    </div>
+</nav>
